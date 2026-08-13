@@ -59,7 +59,7 @@ public class Main extends JFrame {
 	public Main() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/img/japdv.png")));
 		setResizable(false);
-		setTitle("Quintilianus");
+		setTitle("Fornecedores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1512, 1068);
 		JPanel contentPane = new JPanel();
@@ -95,6 +95,12 @@ public class Main extends JFrame {
 		panel.add(lblNewLabel_1);
 
 		JButton btnFornecedores = new JButton("FORNECEDORES");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmFornecedor fornecedor = new frmFornecedor();
+				fornecedor.setVisible(true);
+			}
+		});
 		btnFornecedores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFornecedores.setBackground(Color.WHITE);
 		btnFornecedores.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -179,9 +185,21 @@ public class Main extends JFrame {
 		JPanel panel_3_1 = new JPanel();
 		panel_3_1.setBounds(1098, 107, 373, 143);
 		contentPane.add(panel_3_1);
+		panel_3_1.setLayout(null);
+		
+		JLabel lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (8).png")));
+		lblNewLabel_5.setBounds(83, 9, 67, 64);
+		panel_3_1.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_10_1_1 = new JLabel("Sem Estoque");
+		lblNewLabel_10_1_1.setForeground(Color.PINK);
+		lblNewLabel_10_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10_1_1.setBounds(148, 33, 155, 29);
+		panel_3_1.add(lblNewLabel_10_1_1);
 
 		JPanel panel_3_2_3 = new JPanel();
-		panel_3_2_3.setBounds(307, 440, 1164, 323);
+		panel_3_2_3.setBounds(307, 440, 1164, 312);
 		contentPane.add(panel_3_2_3);
 
 		JPanel panel_2_1 = new JPanel();
@@ -191,35 +209,113 @@ public class Main extends JFrame {
 		panel_2_1.setLayout(null);
 
 		lblData = new JLabel("");
+		lblData.setBounds(1009, 30, 142, 36);
 		lblData.setForeground(Color.WHITE);
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblData.setBounds(1009, 30, 142, 36);
 		panel_2_1.add(lblData);
 
 		JLabel lblCalendario_icon = new JLabel("");
-		lblCalendario_icon.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (7).png")));
 		lblCalendario_icon.setBounds(939, 0, 74, 77);
+		lblCalendario_icon.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (7).png")));
 		panel_2_1.add(lblCalendario_icon);
+		
+		JLabel lblNewLabel_9 = new JLabel("");
+		lblNewLabel_9.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (16).png")));
+		lblNewLabel_9.setBounds(28, 19, 64, 47);
+		panel_2_1.add(lblNewLabel_9);
+		
+		JLabel lblDashboard = new JLabel("Dashboard");
+		lblDashboard.setForeground(Color.WHITE);
+		lblDashboard.setFont(new Font("Tahoma", Font.BOLD, 37));
+		lblDashboard.setBackground(new Color(255, 153, 153));
+		lblDashboard.setBounds(102, 11, 303, 44);
+		panel_2_1.add(lblDashboard);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Visão geral do seu negócio");
+		lblNewLabel_1_1.setForeground(new Color(255, 250, 205));
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(102, 51, 284, 26);
+		panel_2_1.add(lblNewLabel_1_1);
 
 		JPanel panel_3_1_1 = new JPanel();
 		panel_3_1_1.setBounds(698, 107, 362, 143);
 		contentPane.add(panel_3_1_1);
+		panel_3_1_1.setLayout(null);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setBounds(50, 11, 64, 64);
+		lblNewLabel_4.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (10).png")));
+		panel_3_1_1.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_10_1 = new JLabel("Estoque Baixo");
+		lblNewLabel_10_1.setForeground(Color.PINK);
+		lblNewLabel_10_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10_1.setBounds(124, 33, 179, 29);
+		panel_3_1_1.add(lblNewLabel_10_1);
 
 		JPanel panel_3_1_2 = new JPanel();
 		panel_3_1_2.setBounds(307, 107, 362, 143);
 		contentPane.add(panel_3_1_2);
+		panel_3_1_2.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (9).png")));
+		lblNewLabel_3.setBounds(51, 11, 64, 64);
+		panel_3_1_2.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_10 = new JLabel("Produtos");
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10.setForeground(Color.PINK);
+		lblNewLabel_10.setBounds(135, 33, 142, 29);
+		panel_3_1_2.add(lblNewLabel_10);
 
 		JPanel panel_3_1_2_1 = new JPanel();
 		panel_3_1_2_1.setBounds(307, 273, 362, 143);
 		contentPane.add(panel_3_1_2_1);
+		panel_3_1_2_1.setLayout(null);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (17).png")));
+		lblNewLabel_6.setBounds(51, 21, 64, 69);
+		panel_3_1_2_1.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_10_2 = new JLabel("Vendas Hoje");
+		lblNewLabel_10_2.setForeground(Color.PINK);
+		lblNewLabel_10_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10_2.setBounds(126, 38, 200, 29);
+		panel_3_1_2_1.add(lblNewLabel_10_2);
 
 		JPanel panel_3_1_1_1 = new JPanel();
 		panel_3_1_1_1.setBounds(698, 273, 362, 143);
 		contentPane.add(panel_3_1_1_1);
+		panel_3_1_1_1.setLayout(null);
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (12).png")));
+		lblNewLabel_7.setBounds(53, 23, 64, 64);
+		panel_3_1_1_1.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_10_2_1 = new JLabel("Itens vendidos hoje");
+		lblNewLabel_10_2_1.setForeground(Color.PINK);
+		lblNewLabel_10_2_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10_2_1.setBounds(116, 40, 246, 29);
+		panel_3_1_1_1.add(lblNewLabel_10_2_1);
 
 		JPanel panel_3_1_3 = new JPanel();
 		panel_3_1_3.setBounds(1098, 273, 373, 143);
 		contentPane.add(panel_3_1_3);
+		panel_3_1_3.setLayout(null);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (14).png")));
+		lblNewLabel_8.setBounds(63, 24, 64, 64);
+		panel_3_1_3.add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_10_2_1_1 = new JLabel("Faturamento hoje");
+		lblNewLabel_10_2_1_1.setForeground(Color.PINK);
+		lblNewLabel_10_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_10_2_1_1.setBounds(137, 40, 246, 29);
+		panel_3_1_3.add(lblNewLabel_10_2_1_1);
 		
 		JPanel panel_3_2_3_1 = new JPanel();
 		panel_3_2_3_1.setBounds(0, 774, 1496, 255);
