@@ -23,6 +23,13 @@ import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 
+//import Database
+//importar a classe adatabase do pacote database
+import database.Database;
+
+
+
+//contrutor
 public class Main extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -32,6 +39,9 @@ public class Main extends JFrame {
 	private JButton btnSair;
 	private JButton btnSobre;
 	private JLabel lblData;
+	
+	//Criação do objeto para lidar com a conexão 
+	Database db = new Database ();
 
 	/**
 	 * Launch the application.
@@ -61,7 +71,7 @@ public class Main extends JFrame {
 		setResizable(false);
 		setTitle("Fornecedores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1512, 1068);
+		setBounds(100, 100, 1512, 850);
 		JPanel contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setForeground(new Color(255, 153, 153));
@@ -71,7 +81,7 @@ public class Main extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
-		panel.setBounds(0, 0, 286, 774);
+		panel.setBounds(0, 0, 286, 753);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -199,7 +209,7 @@ public class Main extends JFrame {
 		panel_3_1.add(lblNewLabel_10_1_1);
 
 		JPanel panel_3_2_3 = new JPanel();
-		panel_3_2_3.setBounds(307, 440, 1164, 312);
+		panel_3_2_3.setBounds(307, 440, 1164, 286);
 		contentPane.add(panel_3_2_3);
 
 		JPanel panel_2_1 = new JPanel();
@@ -318,8 +328,26 @@ public class Main extends JFrame {
 		panel_3_1_3.add(lblNewLabel_10_2_1_1);
 		
 		JPanel panel_3_2_3_1 = new JPanel();
-		panel_3_2_3_1.setBounds(0, 774, 1496, 255);
+		panel_3_2_3_1.setBounds(0, 752, 1496, 59);
 		contentPane.add(panel_3_2_3_1);
+		panel_3_2_3_1.setLayout(null);
+		
+		JLabel lblNewLabel_11 = new JLabel("");
+		lblNewLabel_11.setIcon(new ImageIcon(Main.class.getResource("/img/Sem nome (64 x 64 px) (20).png")));
+		lblNewLabel_11.setBounds(10, 11, 53, 37);
+		panel_3_2_3_1.add(lblNewLabel_11);
+		
+		JLabel lblMysql = new JLabel("MySQL ");
+		lblMysql.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMysql.setForeground(Color.PINK);
+		lblMysql.setBounds(73, 22, 160, 26);
+		panel_3_2_3_1.add(lblMysql);
+		
+		JLabel lblStatus = new JLabel("●");
+		lblStatus.setVerticalAlignment(SwingConstants.TOP);
+		lblStatus.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblStatus.setBounds(243, 15, 86, 33);
+		panel_3_2_3_1.add(lblStatus);
 
 		// para iniciar centralizar
 		setLocationRelativeTo(null);
@@ -329,6 +357,18 @@ public class Main extends JFrame {
 
 		atualizarData();
 
+		//status do banco // mudar texto e cor da bolinha
+		if (db.testarConexao() == true) {
+			System.out.println("Banco conectado");
+			lblMysql.setText("MySQL Conectado");
+			lblStatus.setForeground(Color.GREEN);
+		} else {
+			System.out.println("Erro na conexão");
+			lblMysql.setText("MySQL Desconectado");
+			lblStatus.setForeground(Color.RED);
+		}
+		
+		
 	} // fim do construtor
 
 	// Função (método) para atualizar data do sistema
